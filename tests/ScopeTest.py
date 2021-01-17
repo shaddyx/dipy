@@ -37,6 +37,8 @@ class Dependency3(object):
         print("test called")
 
 class Dependency4(object):
+    def a(self):
+        pass
     pass
 
 class Dependency5(Dependency4):

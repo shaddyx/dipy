@@ -32,7 +32,7 @@ def _getClassTree(cls):
         res += flatten([_getClassTree(parent) for parent in cls.__bases__])
     return res
 
-def getBean_qualifier(bean):
+def getBean_qualifier(bean) -> str:
     if isinstance(bean, str):
         return bean
     from scopeton.objects import Bean

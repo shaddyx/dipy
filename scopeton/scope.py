@@ -25,11 +25,11 @@ class Scope(object):
         if parent:
             parent.children.append(self)
 
-    def getInstance(self, name: T) -> T:
+    def getInstance(self, name: typing.Type[T]) -> T:
         with self.lock:
             return self._getInstance(getBean_qualifier(name))
 
-    def getInstances(self, qualifier: T) -> typing.List[T]:
+    def getInstances(self, qualifier: typing.Type[T]) -> typing.List[T]:
         with self.lock:
             beans = self._beans.find_by_qualifier_name(getBean_qualifier(qualifier))
             beans = map(lambda x: self.getInstance(x), beans)
